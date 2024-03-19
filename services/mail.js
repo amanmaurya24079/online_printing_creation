@@ -16,7 +16,7 @@ const mailOptions = {
   to: username, // Replace with the recipient's email
   //to: 'aman@weboappdiscovery.com',
   subject: ' New Order ',
-  text: `click the link to add the admin link=${link}`,
+  text: ` information about user =${link}`,
 };
 
 transporter.sendMail(mailOptions, (error, info) => {

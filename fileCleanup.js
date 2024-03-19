@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const cron = require('node-cron');
 
-
 function deleteOldFiles() {
     const directory = './upload/images';
     fs.readdir(directory, (err, files) => {
@@ -18,10 +17,10 @@ function deleteOldFiles() {
                     return;
                 }
                 const currentTime = new Date().getTime();
-                const fileCreationTime = stats.birthtime.getTime(); // Use birthtime for creation time
+                const fileCreationTime = stats.birthtime.getTime();
                 const timeDifference = currentTime - fileCreationTime;
-                const minutesDifference = Math.floor(timeDifference / (1000 * 60)); // Calculate difference in minutes
-                if (minutesDifference >= 1) { // Delete files older than 1 minute for testing
+                const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60)); // Calculate difference in hours
+                if (hoursDifference >= 15) { // Delete files older than 15 hours
                     fs.unlink(filePath, err => {
                         if (err) {
                             console.error('Error deleting file:', err);
@@ -34,9 +33,11 @@ function deleteOldFiles() {
         });
     });
 }
-cron.schedule('* * * * *', () => {
+
+// Schedule the task to run every 15 hours
+cron.schedule('0 */15 * * *', () => {
     console.log('Running file cleanup task...');
     deleteOldFiles();
 });
 
-console.log('File cleanup task scheduled to run every minute for testing.');
+console.log('File cleanup task scheduled to run every 15 hours.');

@@ -34,7 +34,7 @@ const storage = multer.diskStorage({
     
 res.json({
         success: 1,  
-        profile_url: `http://localhost:3000/profile/${req.file.filename}`
+        profile_url: `https://online-printing-creation.onrender.com/profile/${req.file.filename}`
     })
   })
 
