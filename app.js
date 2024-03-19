@@ -15,29 +15,6 @@ app.use(bodyParser.json());
 
 
 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb) => {
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-  })
-  const upload = multer({
-    storage: storage,
-    limits:10000
-  })
-
-
-  app.use('/profile', express.static('upload/images'));
-  app.post("/upload",upload.single('profile'), (req, res) => {
-    
- 
-    
-res.json({
-        success: 1,  
-        profile_url: `https://online-printing-creation.onrender.com/profile/${req.file.filename}`
-    })
-  })
-
 
 const PORT = process.env.PORT || 1000;
 app.listen(PORT, () => {
