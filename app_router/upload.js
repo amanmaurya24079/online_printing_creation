@@ -5,7 +5,7 @@ const path = require("path");
 const mail=require("../services/mail")
 appRouter.get('/',(req, res) => {
 
-    res.status(200).json("server is on live ")
+    res.status(200).json("server is on live on 3000 ")
 });
 
 
@@ -15,7 +15,7 @@ appRouter.post('/send_mail',(req, res) => {
 
   console.log("data===",req.query)
     mail(req.query.emial,JSON.stringify(req.query))
-    res.status(200).json("server is on live ")
+    res.status(200).json(" Mail send successfully ")
 });
 
 
