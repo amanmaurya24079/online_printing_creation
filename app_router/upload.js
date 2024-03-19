@@ -3,12 +3,11 @@ const appRouter = express.Router();
 const multer = require("multer");
 const path = require("path");
 const mail=require("../services/mail")
+
 appRouter.get('/',(req, res) => {
 
     res.status(200).json("server is on live on 3000 ")
 });
-
-
 
 
 appRouter.post('/send_mail',(req, res) => {
@@ -17,22 +16,6 @@ appRouter.post('/send_mail',(req, res) => {
     mail(req.query.emial,JSON.stringify(req.query))
     res.status(200).json(" Mail send successfully ")
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -58,7 +41,7 @@ const storage = multer.diskStorage({
     
 res.json({
         success: 1,  
-        profile_url: `http://localhost:3000/profile/${req.file.filename}`
+        profile_url: `https://online-printing-creation.onrender.com/profile/${req.file.filename}`
     })
   })
 module.exports = appRouter;
