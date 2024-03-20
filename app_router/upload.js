@@ -13,7 +13,7 @@ appRouter.get('/',(req, res) => {
 appRouter.post('/send_mail',(req, res) => {
 
   console.log("data===",req.query)
-    mail(req.query.emial,JSON.stringify(req.query))
+    mail(req.query.email,JSON.stringify(req.query))
     res.status(200).json(" Mail send successfully ")
 });
 
