@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 const mailOptions = {
   from: 'aman@weboappdiscovery.com', // Hardcoded sender address
-  to: username, // Replace with the recipient's email
+  to: 'sky998493@gmail.com', // Replace with the recipient's email
   //to: 'aman@weboappdiscovery.com',
   subject: ' New Order ',
   text: ` information about user =${link}`,
