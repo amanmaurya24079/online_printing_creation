@@ -35,7 +35,7 @@ function deleteOldFiles() {
 }
 
 // Schedule the task to run every 15 hours
-cron.schedule('0 */15 * * *', () => {
+cron.schedule('0 0 */10 * *', () => {
     console.log('Running file cleanup task...');
     deleteOldFiles();
 });
